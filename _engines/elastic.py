@@ -24,8 +24,7 @@ def _handle_event(event, api_key, api_id, url, verify_certs=True):
         return
     if not "return" in event["data"]:
         return
-    index = f"salt_{event['data']['fun']}"
-    return _publish(event, api_key, api_id, url, index, verify_certs)
+    return _publish(event, api_key, api_id, url, f"salt_{event['data']['fun']}", verify_certs)
 
 
 def start(url=None, api_key=None, api_id=None, verify_certs=True):
